@@ -8,7 +8,7 @@
  * @package   Zend_OpenId
  */
 
-namespace Zend\OpenId\Extension;
+namespace ZendOpenId\Extension;
 
 /**
  * 'Simple Refistration Extension' for Zend\OpenId

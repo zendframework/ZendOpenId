@@ -8,7 +8,7 @@
  * @package   Zend_OpenId
  */
 
-namespace ZendTest\OpenId;
+namespace ZendOpenIdTest;
 
 use Zend\OpenId;
 

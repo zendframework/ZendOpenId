@@ -8,10 +8,10 @@
  * @package   Zend_OpenId
  */
 
-namespace ZendTest\OpenId;
+namespace ZendOpenIdTest;
 
 use Zend\OpenId;
-use Zend\OpenId\Provider\User\Session;
+use ZendOpenId\Provider\User\Session;
 
 
 /**

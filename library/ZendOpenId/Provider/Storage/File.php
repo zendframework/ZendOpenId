@@ -8,7 +8,7 @@
  * @package   Zend_OpenId
  */
 
-namespace Zend\OpenId\Provider\Storage;
+namespace ZendOpenId\Provider\Storage;
 
 use Zend\OpenId;
 use Zend\Stdlib\ErrorHandler;

@@ -8,13 +8,13 @@
  * @package   Zend_OpenId
  */
 
-namespace Zend\OpenId;
+namespace ZendOpenId;
 
 use Zend\Http\Response;
 
 /**
  * Static class that contains common utility functions for
- * {@link Zend\OpenId\Consumer\GenericConsumer} and {@link Zend\OpenId\Provider\GenericProvider}.
+ * {@link ZendOpenId\Consumer\GenericConsumer} and {@link ZendOpenId\Provider\GenericProvider}.
  *
  * This class implements common utility functions that are used by both
  * Consumer and Provider. They include functions for Diffie-Hellman keys

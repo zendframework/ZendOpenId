@@ -8,14 +8,14 @@
  * @package   Zend_OpenId
  */
 
-namespace Zend\OpenId\Provider\User;
+namespace ZendOpenId\Provider\User;
 
 /**
  * Abstract class to get/store information about logged in user in Web Browser
  *
  * @category   Zend
  * @package    Zend_OpenId
- * @subpackage Zend\OpenId\Provider\GenericProvider
+ * @subpackage ZendOpenId\Provider\GenericProvider
  */
 abstract class AbstractUser
 {

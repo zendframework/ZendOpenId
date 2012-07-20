@@ -8,11 +8,11 @@
  * @package   Zend_OpenId
  */
 
-namespace Zend\OpenId\Provider;
+namespace ZendOpenId\Provider;
 
 use Zend\Http\Response;
 use Zend\OpenId;
-use Zend\OpenId\Extension;
+use ZendOpenId\Extension;
 
 /**
  * OpenID provider (server) implementation
@@ -27,14 +27,14 @@ class GenericProvider
     /**
      * Reference to an implementation of storage object
      *
-     * @var Zend\OpenId\Provider\Storage $_storage
+     * @var ZendOpenId\Provider\Storage $_storage
      */
     private $_storage;
 
     /**
      * Reference to an implementation of user object
      *
-     * @var Zend\OpenId\Provider\User\AbstractUser $_user
+     * @var ZendOpenId\Provider\User\AbstractUser $_user
      */
     private $_user;
 
@@ -67,7 +67,7 @@ class GenericProvider
     private $_opEndpoint;
 
     /**
-     * Constructs a Zend\OpenId\Provider\GenericProvider object with given parameters.
+     * Constructs a ZendOpenId\Provider\GenericProvider object with given parameters.
      *
      * @param string $loginUrl is an URL that provides login screen for
      *  end-user (by default it is the same URL with additional GET variable
@@ -75,11 +75,11 @@ class GenericProvider
      * @param string $trustUrl is an URL that shows a question if end-user
      *  trust to given consumer (by default it is the same URL with additional
      *  GET variable openid.action=trust)
-     * @param Zend\OpenId\Provider\User\AbstractUser $user is an object for communication
+     * @param ZendOpenId\Provider\User\AbstractUser $user is an object for communication
      *  with User-Agent and store information about logged-in user (it is a
-     *  Zend\OpenId\Provider\User\Session object by default)
-     * @param Zend\OpenId\Provider\Storage $storage is an object for keeping
-     *  persistent database (it is a Zend\OpenId\Provider\Storage_File object
+     *  ZendOpenId\Provider\User\Session object by default)
+     * @param ZendOpenId\Provider\Storage $storage is an object for keeping
+     *  persistent database (it is a ZendOpenId\Provider\Storage_File object
      *  by default)
      * @param integer $sessionTtl is a default time to live for association
      *   session in seconds (1 hour by default). Consumer must reestablish

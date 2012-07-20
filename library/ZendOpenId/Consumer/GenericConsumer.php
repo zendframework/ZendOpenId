@@ -8,13 +8,13 @@
  * @package   Zend_OpenId
  */
 
-namespace Zend\OpenId\Consumer;
+namespace ZendOpenId\Consumer;
 
 use Zend\Http\Client as HttpClient;
 use Zend\Http\Request;
 use Zend\Http\Response;
 use Zend\OpenId;
-use Zend\OpenId\Extension;
+use ZendOpenId\Extension;
 use Zend\Session\Container as SessionContainer;
 
 /**
@@ -30,7 +30,7 @@ class GenericConsumer
     /**
      * Reference to an implementation of storage object
      *
-     * @var Zend\OpenId\Consumer\Storage $_storage
+     * @var ZendOpenId\Consumer\Storage $_storage
      */
     protected $_storage = null;
 
@@ -38,7 +38,7 @@ class GenericConsumer
      * Enables or disables consumer to use association with server based on
      * Diffie-Hellman key agreement
      *
-     * @var Zend\OpenId\Consumer\Storage $_dumbMode
+     * @var ZendOpenId\Consumer\Storage $_dumbMode
      */
     protected $_dumbMode = false;
 
@@ -71,11 +71,11 @@ class GenericConsumer
     private $_error = '';
 
     /**
-     * Constructs a Zend\OpenId\Consumer\GenericConsumer object with given $storage.
+     * Constructs a ZendOpenId\Consumer\GenericConsumer object with given $storage.
      * Enables or disables future association with server based on
      * Diffie-Hellman key agreement.
      *
-     * @param Zend\OpenId\Consumer\Storage $storage implementation of custom
+     * @param ZendOpenId\Consumer\Storage $storage implementation of custom
      *  storage object
      * @param bool $dumbMode Enables or disables consumer to use association
      *  with server based on Diffie-Hellman key agreement

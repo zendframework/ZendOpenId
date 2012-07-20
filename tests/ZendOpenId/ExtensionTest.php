@@ -8,10 +8,10 @@
  * @package   Zend_OpenId
  */
 
-namespace ZendTest\OpenId\Extension;
+namespace ZendOpenIdTest\Extension;
 
-use Zend\OpenId\OpenId;
-use Zend\OpenId\Extension;
+use ZendOpenId\OpenId;
+use ZendOpenId\Extension;
 
 
 /**
@@ -49,12 +49,12 @@ class ExtensionTest extends \PHPUnit_Framework_TestCase
         $ext = new Extension\Sreg();
         $params = array();
         $this->assertTrue( Extension\AbstractExtension::forAll($ext, 'getTrustData', $params) );
-        $this->assertSame( array('Zend\OpenId\Extension\Sreg'=>array()), $params );
+        $this->assertSame( array('ZendOpenId\Extension\Sreg'=>array()), $params );
 
         $ext = new Extension\Sreg();
         $params = array();
         $this->assertTrue( Extension\AbstractExtension::forAll(array($ext), 'getTrustData', $params) );
-        $this->assertSame( array('Zend\OpenId\Extension\Sreg'=>array()), $params );
+        $this->assertSame( array('ZendOpenId\Extension\Sreg'=>array()), $params );
 
         $ext = new ExtensionHelper();
         $params = array();

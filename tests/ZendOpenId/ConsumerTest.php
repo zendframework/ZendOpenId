@@ -8,14 +8,14 @@
  * @package   Zend_OpenId
  */
 
-namespace ZendTest\OpenId;
+namespace ZendOpenIdTest;
 
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit_Extensions_OutputTestCase as TestCase;
 use Zend\Http;
-use Zend\OpenId\OpenId;
-use Zend\OpenId\Consumer\GenericConsumer as Consumer;
-use Zend\OpenId\Consumer\Storage;
-use Zend\OpenId\Extension;
+use ZendOpenId\OpenId;
+use ZendOpenId\Consumer\GenericConsumer as Consumer;
+use ZendOpenId\Consumer\Storage;
+use ZendOpenId\Extension;
 
 
 /**
@@ -524,7 +524,7 @@ class ConsumerTest extends TestCase
             $this->assertSame( "sha256", $macFunc );
             $this->assertSame( "ed901bc561c29fd7bb42862e5f09fa37e7944a7ee72142322f34a21bfe1384b8", bin2hex($secret) );
             $this->assertTrue( $storage->delAssociation(self::SERVER) );
-        } catch (\Zend\OpenId\Exception\ExceptionInterface $e) {
+        } catch (\ZendOpenId\Exception\ExceptionInterface $e) {
             $this->markTestSkipped($e->getMessage());
         }
     }

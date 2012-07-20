@@ -8,10 +8,10 @@
  * @package   Zend_OpenId
  */
 
-namespace ZendTest\OpenId;
+namespace ZendOpenIdTest;
 
-use Zend\OpenId\OpenId;
-use Zend\OpenId\Extension;
+use ZendOpenId\OpenId;
+use ZendOpenId\Extension;
 
 
 /**
@@ -150,12 +150,12 @@ class SregTest extends \PHPUnit_Framework_TestCase
         $data = array();
         $this->assertTrue( $ext->getTrustData($data) );
         $this->assertSame( 1, count($data) );
-        $this->assertSame( array(), $data["Zend\OpenId\Extension\Sreg"] );
+        $this->assertSame( array(), $data["ZendOpenId\Extension\Sreg"] );
         $ext = new Extension\Sreg(array('nickname'=>true,'email'=>false));
         $data = array();
         $this->assertTrue( $ext->getTrustData($data) );
         $this->assertSame( 1, count($data) );
-        $this->assertSame( array('nickname'=>true,'email'=>false), $data["Zend\OpenId\Extension\Sreg"] );
+        $this->assertSame( array('nickname'=>true,'email'=>false), $data["ZendOpenId\Extension\Sreg"] );
     }
 
     /**
@@ -169,30 +169,30 @@ class SregTest extends \PHPUnit_Framework_TestCase
         $this->assertSame( array(), $ext->getProperties() );
 
         $ext = new Extension\Sreg();
-        $this->assertTrue( $ext->checkTrustData(array("Zend\OpenId\Extension\Sreg"=>array())) );
+        $this->assertTrue( $ext->checkTrustData(array("ZendOpenId\Extension\Sreg"=>array())) );
         $this->assertSame( array(), $ext->getProperties() );
 
         $ext = new Extension\Sreg(array());
-        $this->assertTrue( $ext->checkTrustData(array("Zend\OpenId\Extension\Sreg"=>array("nickname"=>self::USER, "email"=>self::EMAIL))) );
+        $this->assertTrue( $ext->checkTrustData(array("ZendOpenId\Extension\Sreg"=>array("nickname"=>self::USER, "email"=>self::EMAIL))) );
         $this->assertSame( array(), $ext->getProperties() );
 
         $ext = new Extension\Sreg(array("nickname"=>true,"email"=>true));
-        $this->assertTrue( $ext->checkTrustData(array("Zend\OpenId\Extension\Sreg"=>array("nickname"=>self::USER, "email"=>self::EMAIL))) );
+        $this->assertTrue( $ext->checkTrustData(array("ZendOpenId\Extension\Sreg"=>array("nickname"=>self::USER, "email"=>self::EMAIL))) );
         $this->assertSame( array('nickname'=>self::USER, "email"=>self::EMAIL), $ext->getProperties() );
 
         $ext = new Extension\Sreg(array("nickname"=>true,"email"=>true));
-        $this->assertFalse( $ext->checkTrustData(array("Zend\OpenId\Extension\Sreg"=>array("nickname"=>self::USER))) );
+        $this->assertFalse( $ext->checkTrustData(array("ZendOpenId\Extension\Sreg"=>array("nickname"=>self::USER))) );
 
         $ext = new Extension\Sreg(array("nickname"=>true,"email"=>false));
-        $this->assertTrue( $ext->checkTrustData(array("Zend\OpenId\Extension\Sreg"=>array("nickname"=>self::USER))) );
+        $this->assertTrue( $ext->checkTrustData(array("ZendOpenId\Extension\Sreg"=>array("nickname"=>self::USER))) );
         $this->assertSame( array('nickname'=>self::USER), $ext->getProperties() );
 
         $ext = new Extension\Sreg(array("nickname"=>false,"email"=>true));
-        $this->assertTrue( $ext->checkTrustData(array("Zend\OpenId\Extension\Sreg"=>array("nickname"=>self::USER, "email"=>self::EMAIL))) );
+        $this->assertTrue( $ext->checkTrustData(array("ZendOpenId\Extension\Sreg"=>array("nickname"=>self::USER, "email"=>self::EMAIL))) );
         $this->assertSame( array('nickname'=>self::USER, "email"=>self::EMAIL), $ext->getProperties() );
 
         $ext = new Extension\Sreg(array("nickname"=>false,"email"=>true));
-        $this->assertFalse( $ext->checkTrustData(array("Zend\OpenId\Extension\SregX"=>array("nickname"=>self::USER, "email"=>self::EMAIL))) );
+        $this->assertFalse( $ext->checkTrustData(array("ZendOpenId\Extension\SregX"=>array("nickname"=>self::USER, "email"=>self::EMAIL))) );
     }
 
     /**

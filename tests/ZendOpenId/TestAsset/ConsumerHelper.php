@@ -8,10 +8,10 @@
  * @package   Zend_OpenId
  */
 
-namespace ZendTest\OpenId\TestAsset;
+namespace ZendOpenIdTest\TestAsset;
 
-use Zend\OpenId\Consumer\GenericConsumer as Consumer;
-use Zend\OpenId\Consumer\Storage;
+use ZendOpenId\Consumer\GenericConsumer as Consumer;
+use ZendOpenId\Consumer\Storage;
 use Zend\Session\Container as SessionContainer;
 use ZendTest\Session\TestAsset\TestManager as SessionManager;
 

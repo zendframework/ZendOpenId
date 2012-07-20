@@ -8,7 +8,7 @@
  * @package   Zend_OpenId
  */
 
-namespace Zend\OpenId\Exception;
+namespace ZendOpenId\Exception;
 
 /**
  * @category   Zend

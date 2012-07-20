@@ -8,10 +8,10 @@
  * @package   Zend_OpenId
  */
 
-namespace ZendTest\OpenId;
+namespace ZendOpenIdTest;
 
 use Zend\Http\Response;
-use Zend\OpenId\OpenId;
+use ZendOpenId\OpenId;
 
 /**
  * Zend_OpenId

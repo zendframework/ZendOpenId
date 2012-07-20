@@ -8,7 +8,7 @@
  * @package   Zend_OpenId
  */
 
-namespace Zend\OpenId\Provider\User;
+namespace ZendOpenId\Provider\User;
 
 /**
  * Class to get/store information about logged in user in Web Browser using
@@ -28,7 +28,7 @@ class Session extends AbstractUser
     private $_session = null;
 
     /**
-     * Creates \Zend\OpenId\Provider\User\Session object with given session
+     * Creates \ZendOpenId\Provider\User\Session object with given session
      * namespace or creates new session namespace named "openid"
      *
      * @param \Zend\Session\Container $session

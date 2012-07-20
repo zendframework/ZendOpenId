@@ -8,11 +8,11 @@
  * @package   Zend_OpenId
  */
 
-namespace ZendTest\OpenId;
+namespace ZendOpenIdTest;
 
-use Zend\OpenId\OpenId;
-use Zend\OpenId\Provider;
-use Zend\OpenId\Extension;
+use ZendOpenId\OpenId;
+use ZendOpenId\Provider;
+use ZendOpenId\Extension;
 
 /**
  * @outputBuffering enabled
@@ -264,7 +264,7 @@ class ProviderTest extends \PHPUnit_Framework_TestCase
         $this->assertSame( 1, count($trusted) );
         reset($trusted);
         $this->assertSame( "http://www.test.com/", key($trusted) );
-        $this->assertSame( array('Zend\OpenId\Extension\Sreg'=>array('nickname'=>'test_id')), current($trusted) );
+        $this->assertSame( array('ZendOpenId\Extension\Sreg'=>array('nickname'=>'test_id')), current($trusted) );
 
         $this->_user->delLoggedInUser();
         $storage->delUser(self::USER);
@@ -292,7 +292,7 @@ class ProviderTest extends \PHPUnit_Framework_TestCase
         $this->AssertSame( array(
                                'http://www.test1.com/' => true,
                                'http://www.test2.com/' => array(
-                                   'Zend\OpenId\Extension\Sreg' => array(
+                                   'ZendOpenId\Extension\Sreg' => array(
                                        'nickname' => 'test_id'
                                    )
                                )
@@ -303,7 +303,7 @@ class ProviderTest extends \PHPUnit_Framework_TestCase
         $this->AssertSame( array(
                                'http://www.test1.com/' => true,
                                'http://www.test2.com/' => array(
-                                   'Zend\OpenId\Extension\Sreg' => array(
+                                   'ZendOpenId\Extension\Sreg' => array(
                                        'nickname' => 'test_id'
                                    )
                                ),
@@ -315,7 +315,7 @@ class ProviderTest extends \PHPUnit_Framework_TestCase
         $this->AssertSame( array(
                                'http://www.test1.com/' => false,
                                'http://www.test2.com/' => array(
-                                   'Zend\OpenId\Extension\Sreg' => array(
+                                   'ZendOpenId\Extension\Sreg' => array(
                                        'nickname' => 'test_id'
                                    )
                                ),
@@ -357,7 +357,7 @@ class ProviderTest extends \PHPUnit_Framework_TestCase
         $this->AssertSame( array(
                                'http://www.test1.com/' => true,
                                'http://www.test2.com/' => array(
-                                   'Zend\OpenId\Extension\Sreg' => array(
+                                   'ZendOpenId\Extension\Sreg' => array(
                                        'nickname' => 'test_id'
                                    )
                                )
@@ -368,7 +368,7 @@ class ProviderTest extends \PHPUnit_Framework_TestCase
         $this->AssertSame( array(
                                'http://www.test1.com/' => true,
                                'http://www.test2.com/' => array(
-                                   'Zend\OpenId\Extension\Sreg' => array(
+                                   'ZendOpenId\Extension\Sreg' => array(
                                        'nickname' => 'test_id'
                                    )
                                )
@@ -378,7 +378,7 @@ class ProviderTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue( $provider->delSite("http://www.test1.com/") );
         $this->AssertSame( array(
                                'http://www.test2.com/' => array(
-                                   'Zend\OpenId\Extension\Sreg' => array(
+                                   'ZendOpenId\Extension\Sreg' => array(
                                        'nickname' => 'test_id'
                                    )
                                )
@@ -413,7 +413,7 @@ class ProviderTest extends \PHPUnit_Framework_TestCase
         $this->AssertSame( array(
                                'http://www.test1.com/' => true,
                                'http://www.test2.com/' => array(
-                                   'Zend\OpenId\Extension\Sreg' => array(
+                                   'ZendOpenId\Extension\Sreg' => array(
                                        'nickname' => 'test_id'
                                    )
                                )
@@ -610,7 +610,7 @@ class ProviderTest extends \PHPUnit_Framework_TestCase
             $this->assertSame( '3600', $res['expires_in'] );
             $this->assertTrue( $storage->getAssociation($res['assoc_handle'], $macFunc, $secret, $expires) );
             $this->assertSame( 'sha256', $macFunc );
-        } catch (\Zend\OpenId\Exception\ExceptionInterface $e) {
+        } catch (\ZendOpenId\Exception\ExceptionInterface $e) {
             $this->markTestSkipped($e->getMessage());
         }
     }

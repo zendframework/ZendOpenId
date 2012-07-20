@@ -8,7 +8,7 @@
  * @package   Zend_OpenId
  */
 
-namespace Zend\OpenId\Extension;
+namespace ZendOpenId\Extension;
 
 /**
  * Abstract extension class for Zend\OpenId
