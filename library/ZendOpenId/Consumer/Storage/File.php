@@ -10,7 +10,7 @@
 
 namespace ZendOpenId\Consumer\Storage;
 
-use Zend\OpenId;
+use ZendOpenId\OpenId;
 use Zend\Stdlib\ErrorHandler;
 
 /**
