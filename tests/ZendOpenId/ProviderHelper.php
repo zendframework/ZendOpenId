@@ -10,14 +10,12 @@
 
 namespace ZendOpenIdTest;
 
-use Zend\OpenId;
-
 /**
  * @category   Zend
  * @package    Zend_OpenId
  * @subpackage UnitTests
  */
-class ProviderHelper extends OpenId\Provider\GenericProvider
+class ProviderHelper extends \ZendOpenId\Provider\GenericProvider
 {
     public function genSecret($func)
     {
