@@ -10,7 +10,7 @@
 
 namespace ZendOpenIdTest;
 
-use PHPUnit_Extensions_OutputTestCase as TestCase;
+use PHPUnit_Framework_TestCase as TestCase;
 use Zend\Http;
 use ZendOpenId\OpenId;
 use ZendOpenId\Consumer\GenericConsumer as Consumer;

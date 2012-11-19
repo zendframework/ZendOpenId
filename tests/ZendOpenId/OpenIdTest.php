@@ -18,7 +18,7 @@ use ZendOpenId\OpenId;
  * @subpackage UnitTests
  * @group      Zend_OpenId
  */
-class OpenIdTest extends \PHPUnit_Extensions_OutputTestCase
+class OpenIdTest extends \PHPUnit_Framework_TestCase
 {
     private $_serverVariables;
 
