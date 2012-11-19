@@ -11,6 +11,7 @@
 namespace ZendOpenId\Provider\Storage;
 
 use Zend\Stdlib\ErrorHandler;
+use ZendOpenId\Exception;
 
 /**
  * External storage implemmentation using serialized files
@@ -54,21 +55,21 @@ class File extends AbstractStorage
         $this->_dir = $dir;
         if (!is_dir($this->_dir)) {
             if (!@mkdir($this->_dir, 0700, 1)) {
-                throw new \ZendOpenId\Exception\RuntimeException(
+                throw new Exception\RuntimeException(
                     "Cannot access storage directory $dir",
-                    \ZendOpenId\Exception\RuntimeException::ERROR_STORAGE);
+                    Exception\RuntimeException::ERROR_STORAGE);
             }
         }
         if (($f = fopen($this->_dir.'/assoc.lock', 'w+')) === null) {
-            throw new \ZendOpenId\Exception\RuntimeException(
+            throw new Exception\RuntimeException(
                 'Cannot create a lock file in the directory ' . $dir,
-                \ZendOpenId\Exception\RuntimeException::ERROR_STORAGE);
+                Exception\RuntimeException::ERROR_STORAGE);
         }
         fclose($f);
         if (($f = fopen($this->_dir.'/user.lock', 'w+')) === null) {
-            throw new \ZendOpenId\Exception\RuntimeException(
+            throw new Exception\RuntimeException(
                 'Cannot create a lock file in the directory ' . $dir,
-                \ZendOpenId\Exception\RuntimeException::ERROR_STORAGE);
+                Exception\RuntimeException::ERROR_STORAGE);
         }
         fclose($f);
     }
