@@ -28,6 +28,11 @@ class GenericConsumer
 {
 
     /**
+     * Parameters required for signature
+     */
+    protected $_signParams = array('op_endpoint', 'return_to', 'response_nonce', 'assoc_handle');
+
+    /**
      * Reference to an implementation of storage object
      *
      * @var ZendOpenId\Consumer\Storage $_storage
@@ -265,7 +270,25 @@ class GenericConsumer
                 $macFunc,
                 $secret,
                 $expires)) {
+            // Security fix - check the association bewteen op_endpoint and assoc_handle
+            if (isset($params['openid_op_endpoint']) && $url !== $params['openid_op_endpoint']) {
+                $this->_setError("The op_endpoint URI is not the same of URI associated with the assoc_handle");
+                return false;
+            }
             $signed = explode(',', $params['openid_signed']);
+            // Check the parameters for the signature
+            // @see https://openid.net/specs/openid-authentication-2_0.html#positive_assertions
+            $toCheck = $this->_signParams;
+            if (isset($params['openid_claimed_id']) && isset($params['openid_identity'])) {
+                $toCheck = array_merge($toCheck, array('claimed_id', 'identity'));
+            }
+            foreach ($toCheck as $param) {
+                if (!in_array($param, $signed, true)) {
+                    $this->_setError("The required parameter $param is missing in the signed");
+                    return false;
+                }
+            }
+
             $data = '';
             foreach ($signed as $key) {
                 $data .= $key . ':' . $params['openid_' . strtr($key,'.','_')] . "\n";
