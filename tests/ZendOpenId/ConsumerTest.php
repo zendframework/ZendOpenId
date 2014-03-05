@@ -295,7 +295,7 @@ class ConsumerTest extends TestCase
         $this->assertSame( "GET / HTTP/1.1\r\n" .
                            "Host: www.myopenid.com\r\n" .
                            "Connection: close\r\n" .
-                           "Accept-encoding: gzip, deflate\r\n" .
+                           "Accept-Encoding: gzip, deflate\r\n" .
                            "User-Agent: Zend_OpenId\r\n\r\n",
                            $http->getLastRawRequest() );
 
@@ -304,7 +304,7 @@ class ConsumerTest extends TestCase
         $this->assertSame( "POST / HTTP/1.1\r\n" .
                            "Host: www.myopenid.com\r\n" .
                            "Connection: close\r\n" .
-                           "Accept-encoding: gzip, deflate\r\n" .
+                           "Accept-Encoding: gzip, deflate\r\n" .
                            "User-Agent: Zend_OpenId\r\n" .
                            "Content-Type: application/x-www-form-urlencoded\r\n\r\n",
                            $http->getLastRawRequest() );
@@ -314,7 +314,7 @@ class ConsumerTest extends TestCase
         $this->assertSame( "GET /test.php?a=b&c=d HTTP/1.1\r\n" .
                            "Host: www.myopenid.com\r\n" .
                            "Connection: close\r\n" .
-                           "Accept-encoding: gzip, deflate\r\n" .
+                           "Accept-Encoding: gzip, deflate\r\n" .
                            "User-Agent: Zend_OpenId\r\n\r\n",
                            $http->getLastRawRequest() );
 
@@ -323,7 +323,7 @@ class ConsumerTest extends TestCase
         $this->assertSame( "POST /test.php HTTP/1.1\r\n" .
                            "Host: www.myopenid.com\r\n" .
                            "Connection: close\r\n" .
-                           "Accept-encoding: gzip, deflate\r\n" .
+                           "Accept-Encoding: gzip, deflate\r\n" .
                            "User-Agent: Zend_OpenId\r\n" .
                            "Content-Type: application/x-www-form-urlencoded\r\n" .
                            "Content-Length: 7\r\n\r\n" .
@@ -335,7 +335,7 @@ class ConsumerTest extends TestCase
         $this->assertSame( "GET /test.php?a=b&c=x+y HTTP/1.1\r\n" .
                            "Host: www.myopenid.com\r\n" .
                            "Connection: close\r\n" .
-                           "Accept-encoding: gzip, deflate\r\n" .
+                           "Accept-Encoding: gzip, deflate\r\n" .
                            "User-Agent: Zend_OpenId\r\n\r\n",
                            $http->getLastRawRequest() );
 
@@ -344,7 +344,7 @@ class ConsumerTest extends TestCase
         $this->assertSame( "POST /test.php?a=b HTTP/1.1\r\n" .
                            "Host: www.myopenid.com\r\n" .
                            "Connection: close\r\n" .
-                           "Accept-encoding: gzip, deflate\r\n" .
+                           "Accept-Encoding: gzip, deflate\r\n" .
                            "User-Agent: Zend_OpenId\r\n" .
                            "Content-Type: application/x-www-form-urlencoded\r\n" .
                            "Content-Length: 5\r\n\r\n" .
@@ -378,7 +378,7 @@ class ConsumerTest extends TestCase
             $this->assertSame( "POST / HTTP/1.1\r\n" .
                                "Host: www.myopenid.com\r\n" .
                                "Connection: close\r\n" .
-                               "Accept-encoding: gzip, deflate\r\n" .
+                               "Accept-Encoding: gzip, deflate\r\n" .
                                "User-Agent: Zend_OpenId\r\n" .
                                "Content-Type: application/x-www-form-urlencoded\r\n" .
                                "Content-Length: 510\r\n\r\n" .
@@ -396,7 +396,7 @@ class ConsumerTest extends TestCase
             $this->assertSame( "POST / HTTP/1.1\r\n" .
                                "Host: www.myopenid.com\r\n" .
                                "Connection: close\r\n" .
-                               "Accept-encoding: gzip, deflate\r\n" .
+                               "Accept-Encoding: gzip, deflate\r\n" .
                                "User-Agent: Zend_OpenId\r\n" .
                                "Content-Type: application/x-www-form-urlencoded\r\n" .
                                "Content-Length: 567\r\n\r\n" .
@@ -774,8 +774,9 @@ class ConsumerTest extends TestCase
             "openid_identity" => self::REAL_ID,
             "openid_response_nonce" => "2007-08-14T12:52:33Z46c1a59124ffe",
             "openid_mode" => "id_res",
-            "openid_signed" => "assoc_handle,return_to,claimed_id,identity,response_nonce,mode,signed",
-            "openid_sig" => "rMiVhEmHVcIHoY2uzPNb7udWqa4lruvjnwZfujct0TE="
+            "openid_op_endpoint" => self::SERVER,
+            "openid_signed" => "op_endpoint,assoc_handle,return_to,claimed_id,identity,response_nonce,mode,signed",
+            "openid_sig" => "4KFaoZApYmYq6aFdIGzzgbsIiaA="
         );
         $storage->delAssociation(self::SERVER);
         $storage->addAssociation(self::SERVER, self::HANDLE, "sha256", pack("H*", "ed901bc561c29fd7bb42862e5f09fa37e7944a7ee72142322f34a21bfe1384b8"), $expiresIn);
@@ -793,8 +794,8 @@ class ConsumerTest extends TestCase
             "openid_identity" => self::REAL_ID,
             "openid_response_nonce" => "2007-08-14T12:52:33Z46c1a59124fff",
             "openid_mode" => "id_res",
-            "openid_signed" => "assoc_handle,return_to,claimed_id,identity,response_nonce,mode,signed",
-            "openid_sig" => "h/5AFD25NpzSok5tzHEGCVUkQSw="
+            "openid_signed" => "op_endpoint,assoc_handle,return_to,claimed_id,identity,response_nonce,mode,signed",
+            "openid_sig" => "O1ycNUA75AiVnoIcdBrx/nx462lLRv4f7xO9IPRiHqU="
         );
         $storage->delAssociation(self::SERVER);
         $storage->addAssociation(self::SERVER, self::HANDLE, "sha1", pack("H*", "8382aea922560ece833ba55fa53b7a975f597370"), $expiresIn);
@@ -855,10 +856,11 @@ class ConsumerTest extends TestCase
         $storage->delAssociation(self::SERVER);
         $params = array(
             "openid_return_to" => "http://www.zf-test.com/test.php",
+            "openid_op_endpoint" => self::SERVER,
             "openid_assoc_handle" => self::HANDLE,
             "openid_response_nonce" => "2007-08-14T12:52:33Z46c1a59124ffe",
             "openid_mode" => "id_res",
-            "openid_signed" => "assoc_handle,return_to,response_nonce,mode,signed",
+            "openid_signed" => "op_endpoint,assoc_handle,return_to,claimed_id,identity,response_nonce,mode,signed",
             "openid_sig" => "h/5AFD25NpzSok5tzHEGCVUkQSw="
         );
         $storage->purgeNonces();
@@ -869,31 +871,33 @@ class ConsumerTest extends TestCase
         $storage->delAssociation(self::SERVER);
         $params = array(
             "openid_return_to" => "http://www.zf-test.com/test.php",
+            "openid_op_endpoint" => self::SERVER,
             "openid_assoc_handle" => self::HANDLE,
             "openid_claimed_id" => self::ID,
             "openid_identity" => self::REAL_ID,
             "openid_response_nonce" => "2007-08-14T12:52:33Z46c1a59124ffe",
             "openid_mode" => "id_res",
-            "openid_signed" => "assoc_handle,return_to,claimed_id,identity,response_nonce,mode,signed",
-            "openid_sig" => "h/5AFD25NpzSok5tzHEGCVUkQSw="
+            "openid_signed" => "op_endpoint,assoc_handle,return_to,claimed_id,identity,response_nonce,mode,signed",
+            "openid_sig" => "4KFaoZApYmYq6aFdIGzzgbsIiaA="
         );
         $storage->purgeNonces();
         $this->assertFalse( $consumer->verify($params) );
         $this->assertSame( "POST / HTTP/1.1\r\n" .
                            "Host: www.myopenid.com\r\n" .
                            "Connection: close\r\n" .
-                           "Accept-encoding: gzip, deflate\r\n" .
+                           "Accept-Encoding: gzip, deflate\r\n" .
                            "User-Agent: Zend_OpenId\r\n" .
                            "Content-Type: application/x-www-form-urlencoded\r\n" .
-                           "Content-Length: 445\r\n\r\n" .
+                           "Content-Length: 509\r\n\r\n" .
                            "openid.return_to=http%3A%2F%2Fwww.zf-test.com%2Ftest.php&" .
+                           "openid.op_endpoint=" . urlencode(self::SERVER) . '&' .
                            "openid.assoc_handle=d41d8cd98f00b204e9800998ecf8427e&" .
                            "openid.claimed_id=http%3A%2F%2Fid.myopenid.com%2F&" .
                            "openid.identity=http%3A%2F%2Freal_id.myopenid.com%2F&" .
                            "openid.response_nonce=2007-08-14T12%3A52%3A33Z46c1a59124ffe&" .
                            "openid.mode=check_authentication&" .
-                           "openid.signed=assoc_handle%2Creturn_to%2Cclaimed_id%2Cidentity%2Cresponse_nonce%2Cmode%2Csigned&" .
-                           "openid.sig=h%2F5AFD25NpzSok5tzHEGCVUkQSw%3D",
+                           "openid.signed=op_endpoint%2Cassoc_handle%2Creturn_to%2Cclaimed_id%2Cidentity%2Cresponse_nonce%2Cmode%2Csigned&" .
+                           "openid.sig=4KFaoZApYmYq6aFdIGzzgbsIiaA%3D",
                            $http->getLastRawRequest() );
 
         $test->setResponse("HTTP/1.1 200 OK\r\n\r\nis_valid:true");
@@ -936,7 +940,7 @@ class ConsumerTest extends TestCase
         $this->assertSame( "POST / HTTP/1.1\r\n" .
                            "Host: www.myopenid.com\r\n" .
                            "Connection: close\r\n" .
-                           "Accept-encoding: gzip, deflate\r\n" .
+                           "Accept-Encoding: gzip, deflate\r\n" .
                            "User-Agent: Zend_OpenId\r\n" .
                            "Content-Type: application/x-www-form-urlencoded\r\n" .
                            "Content-Length: 672\r\n\r\n" .
@@ -974,5 +978,39 @@ class ConsumerTest extends TestCase
         $storage->purgeNonces();
         $this->assertFalse( $consumer->verify($params) );
         $this->assertFalse( $storage->getAssociation(self::SERVER."1", $handle, $func, $secret, $expires) );
+    }
+
+    /**
+     * Test the required parameters for the signature
+     * @see https://openid.net/specs/openid-authentication-2_0.html#positive_assertions
+     */
+    public function testSignedParams()
+    {
+        $expiresIn = time() + 600;
+        $_SERVER['SCRIPT_URI'] = "http://www.zf-test.com/test.php";
+        $storage = new Storage\File(__DIR__ . "/_files/consumer");
+        $consumer = new TestAsset\ConsumerHelper($storage);
+
+        $storage->addDiscoveryInfo(self::ID, self::REAL_ID, self::SERVER, 1.1, $expiresIn);
+
+        // Wrong arguments
+        $this->assertFalse( $consumer->verify(array()) );
+        // HMAC-SHA1
+        $consumer->clearAssociation();
+        $params = array(
+            "openid_return_to" => "http://www.zf-test.com/test.php",
+            "openid_assoc_handle" => self::HANDLE,
+            "openid_claimed_id" => self::ID,
+            "openid_identity" => self::REAL_ID,
+            "openid_response_nonce" => "2007-08-14T12:52:33Z46c1a59124ffe",
+            "openid_mode" => "id_res",
+            "openid_signed" => "assoc_handle,return_to,claimed_id,identity,response_nonce,mode,signed",
+            "openid_sig" => "h/5AFD25NpzSok5tzHEGCVUkQSw="
+        );
+        $storage->delAssociation(self::SERVER);
+        $storage->addAssociation(self::SERVER, self::HANDLE, "sha1", pack("H*", "8382aea922560ece833ba55fa53b7a975f597370"), $expiresIn);
+        $storage->purgeNonces();
+        $this->assertFalse( $consumer->verify($params) );
+        $this->assertEquals( "The required parameter op_endpoint is missing in the signed", $consumer->getError());
     }
 }
