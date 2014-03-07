@@ -1,4 +1,4 @@
-ZendService\Akismet component
+ZendOpenId component
 
 You can install using:
 
